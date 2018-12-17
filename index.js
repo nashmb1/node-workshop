@@ -1,3 +1,6 @@
-var products = require(__dirname + '/products.json')
+var fs = require('fs');
 
-console.log(products);
+var file = 'products.json';
+fs.readFile(`${__dirname}/${file}`, 'utf8', (err, file) => {
+    console.log(err, file);
+});
