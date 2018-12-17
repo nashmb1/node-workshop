@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <h1>Voici la liste des produits:</h1>
+    <ul>
+    <% products.forEach(function(product) { %>
+        <li>
+            <a href="<%= product.file_link %>"><%= product.name%></a>
+            <button onclick="command();" class="product-command">Commander</button>
+        </li>
+      <% }); %>
+    </ul>
+    <script>
+
+        function command() {
+            console.log('on clickekke');
+
+            fetch('/oder-by-id/2')
+            .then(function(response){
+                console.log(response);
+            })
+            ;
+        }
+    /*    var elements  = document.getElementsByClassName('product-command');
+
+        elements.forEach(element => {
+            element.addEventListener('click', function(){
+                console.log('cllellell')
+            })
+        });*/
+
+    </script>
+</body>
+</html>
